@@ -18,19 +18,19 @@ node {
             "Core Tests": {
                 dir('core') {
                     sh 'mvn test'
-                    junit 'target/surefire-reports/*.xml'
+                    junit '**/target/surefire-reports/*.xml'
                 }
             },
             "Tax Tests": {
                 dir('tax') {
                     sh 'mvn test'
-                    junit 'target/surefire-reports/*.xml'
+                    junit '**/target/surefire-reports/*.xml'
                 }
             },
             "App Tests": {
                 dir('app') {
                     sh 'mvn test'
-                    junit 'target/surefire-reports/*.xml'
+                    junit '**/target/surefire-reports/*.xml'
                 }
             }
         )

@@ -1,12 +1,12 @@
-package com.example.core;
-
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ForexConverterTest {
+class ForexConverterTest {
     @Test
-    void testInrToUsd() {
-        ForexConverter fx = new ForexConverter();
-        assertEquals(12, fx.inrToUsd(1000), 0.5);
+    void testConversion() {
+        ForexConverter converter = new ForexConverter();
+        double result = converter.convert(100, 1.1);
+        assertEquals(110.0, result, 0.001);
     }
 }
+
