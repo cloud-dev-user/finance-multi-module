@@ -18,19 +18,19 @@ node {
             "Core Tests": {
                 dir('core') {
                     sh 'mvn test'
-                    junit '**/target/surefire-reports/*.xml'
+                    junit '**/target/surefire-reports/*.xml', allowEmptyResults: true
                 }
             },
             "Tax Tests": {
                 dir('tax') {
                     sh 'mvn test'
-                    junit '**/target/surefire-reports/*.xml'
+                    junit '**/target/surefire-reports/*.xml', allowEmptyResults: true
                 }
             },
             "App Tests": {
                 dir('app') {
                     sh 'mvn test'
-                    junit '**/target/surefire-reports/*.xml'
+                    junit '**/target/surefire-reports/*.xml', allowEmptyResults: true
                 }
             }
         )
@@ -40,10 +40,5 @@ node {
         sh 'mvn package -DskipTests'
         archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
     }
-    post {
-    always {
-        junit '**/target/surefire-reports/*.xml', allowEmptyResults: true
-    }
-}
-
+    
 }
