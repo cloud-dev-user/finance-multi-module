@@ -18,19 +18,19 @@ node {
             "Core Tests": {
                 dir('core') {
                     sh 'mvn test'
-                    junit '**/target/surefire-reports/*.xml', allowEmptyResults: true
+                    junit testResults: '**/target/surefire-reports/*.xml', allowEmptyResults: true
                 }
             },
             "Tax Tests": {
                 dir('tax') {
                     sh 'mvn test'
-                    junit '**/target/surefire-reports/*.xml', allowEmptyResults: true
+                    junit testResults: '**/target/surefire-reports/*.xml', allowEmptyResults: true
                 }
             },
             "App Tests": {
                 dir('app') {
                     sh 'mvn test'
-                    junit '**/target/surefire-reports/*.xml', allowEmptyResults: true
+                    junit testResults: '**/target/surefire-reports/*.xml', allowEmptyResults: true
                 }
             }
         )
