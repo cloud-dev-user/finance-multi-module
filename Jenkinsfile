@@ -40,4 +40,10 @@ node {
         sh 'mvn package -DskipTests'
         archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
     }
+    post {
+    always {
+        junit '**/target/surefire-reports/*.xml', allowEmptyResults: true
+    }
+}
+
 }
